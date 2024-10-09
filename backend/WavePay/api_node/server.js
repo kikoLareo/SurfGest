@@ -1,11 +1,11 @@
-const express = require('express');
-const cors = require('cors');  // Importa el middleware cors
-const app = express();
-const port = 5001;
+import express from 'express';
+import cors from 'cors';  // Importa el middleware cors
 
-// Configura CORS para permitir cualquier origen (esto es ideal solo para desarrollo)
-app.use(cors({ origin: 'http://localhost:3000' }));
-  app.options('*', cors());  // Habilitar el manejo de todas las solicitudes preflight
+const app = express(); // Definir y crear la aplicación Express
+const port = process.env.PORT || 5001;
+// Configurar CORS para permitir cualquier origen (ideal solo para desarrollo)
+app.use(cors());
+app.options('*', cors());
 
 app.use(express.json());  // Middleware para parsear el body como JSON
 
@@ -53,3 +53,6 @@ app.post('/calculate_fee', (req, res) => {
 app.listen(port, () => {
   console.log(`Servidor escuchando en http://localhost:${port}`);
 });
+
+// Exportar `app` para usarla en los tests
+export { app };

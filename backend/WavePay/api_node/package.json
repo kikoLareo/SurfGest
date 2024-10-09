@@ -1,11 +1,12 @@
 {
-  "name": "backend",
+  "name": "api-node",
   "version": "1.0.0",
+  "description": "API backend para WavePay",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "testPython": "python -m unittest WavePay.calc_module.test_calc_module",
-    "testNpm" : "npm --prefix ./WavePay/api_node test"
+    "start": "node server.js",
+    "test": "mocha"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -26,5 +27,4 @@
   "keywords": [],
   "author": "",
   "license": "ISC"
-  
 }
